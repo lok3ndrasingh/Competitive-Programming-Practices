@@ -1,0 +1,57 @@
+//Problem URL
+//https://practice.geeksforgeeks.org/problems/the-number-system/0
+
+// Solution
+
+#include<iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+int n;
+cin>>n;
+vector<pair<int,int>> v;
+for(int i=0;i<n;i++)
+{
+  int a,b;
+  cin>>a;
+  cin>>b;
+  v.push_back(make_pair(a,b));
+}
+  vector<pair<int,int>>:: iterator i;
+  for( i=v.begin(); i!=v.end();i++)
+  {
+    int N =(*i).first;
+    int K =(*i).second;
+
+    vector<int> values;
+    while(true)
+      {
+        int res = N/K;
+        int rem = N%K;
+        if(res>K || rem<K)
+          {
+                values.push_back(rem);
+          }
+        if(res<K)
+          {
+              values.push_back(res);
+              break;
+          }
+              N=res;
+        }
+if(values.back()==0)
+{
+  values.pop_back();
+}
+      reverse(values.begin(), values.end());
+      vector<int> :: iterator vi;
+
+      for( vi =values.begin();vi!=values.end();vi++)
+      {
+        cout<<*vi;
+      }
+        cout<<endl;
+   }
+}
