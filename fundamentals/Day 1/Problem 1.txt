@@ -1,0 +1,38 @@
+// Problem URL : 
+//https://practice.geeksforgeeks.org/problems/count-digits/0
+
+//My Solution in C++
+
+#include<iostream>
+using namespace std;
+int main()
+ {
+	int n;
+	cin>>n;
+	int ar[n];
+	
+	for(int i=0;i<n;i++)
+	{
+	    cin>>ar[i];
+	}
+	
+	for(int j=0;j<n;j++)
+	{
+	    int temp=0;
+	    int count =0;
+	    int originalNumber=ar[j];
+	    while(ar[j]!=0)
+	    {
+	        temp = ar[j]%10;
+	        if(temp!=0 && originalNumber%temp==0)
+	        {
+	            count++;
+	        }
+	        
+	        ar[j]=ar[j]/10;
+         }
+         cout<<count<<endl;
+	}
+
+
+}
